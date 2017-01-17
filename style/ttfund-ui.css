@@ -1,0 +1,17 @@
+body,html { overflow: hidden;}
+* { font-family:\5FAE\8F6F\96C5\9ED1, Arial, Helvetica, sans-serif;}
+.aside { width: 180px; height: 100%; background: #f0f0f0; overflow: auto; padding: 0 10px 0 10px; position: relative; z-index: 2;}
+.aside h2 { line-height: 40px; font-size: 22px; font-weight: normal; padding-top: 20px;}
+.aside ul { padding-bottom: 50px;}
+.aside ul li { padding-left: 6px; line-height: 30px; height: 30px; overflow: hidden;}
+
+.main { position: absolute; left: 0; top: 0; z-index: 1; width: 100%; height: 100%; overflow: auto;}
+.main .item { margin: 20px 20px 0 220px; border-bottom: 1px dashed #ccc; padding: 10px;}
+.main .item[hover] { background: #f00}
+.main .item h2 { line-height: 20px; font-size: 16px; font-weight: normal; margin-bottom: 10px;}
+.main .item h2 span { padding-left: 20px; font-size: 14px;}
+.main .item .inner { background: #dbdbdb; padding: 10px;}
+.main .item .inner div.b { padding-bottom: 10px;}
+.main .item .inner div a { margin-right: 10px;}
+.main .item .inner div input[type='button'] { background: #fff; padding: 6px; border: 1px solid #999; border-radius: 5px;}
+.main .item .inner strong { display: block; padding-top: 10px; color: #f00; font-weight: normal;}

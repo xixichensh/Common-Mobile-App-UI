@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="../style/reset.css">
+<title>demo-confirm</title>
+</head>
+<body>
+<style>
+.PasswordMasker, .confirmMasker, .alertMasker, .TTfundMasker {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 99998;
+    display: none;
+}
+.confirmMasker>div .confirm h2, .alertMasker>div .alert h2 {
+    box-sizing: content-box;
+    font-size: 19px;
+    font-weight: normal;
+    text-align: center;
+    height: 28px;
+    line-height: 28px;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.8);
+    color: #000000;
+    padding-top: 5px;
+}
+.PasswordMasker>div .Password p, .confirmMasker>div .confirm p, .alertMasker>div .alert p {
+    color: #000000;
+    padding: 8px 15px;
+    font-size: 14px;
+    text-align: center;
+    font-weight: normal;
+}
+.PasswordMasker footer, .TTfundMasker footer, .confirmMasker footer, .alertMasker footer {
+    display: flex;
+    display: -webkit-flex;
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -ms-box-orient: horizontal;
+    -o-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    -o-flex-direction: row;
+    -moz-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: distribute;
+    -ms-justify-content: distribute;
+    -o-justify-content: distribute;
+    -moz-justify-content: distribute;
+    justify-content: space-around;
+    -webkit-box-align: stretch;
+    -ms-box-align: stretch;
+    -o-box-align: stretch;
+    -moz-box-align: stretch;
+    box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-align-items: stretch;
+    -moz-align-items: stretch;
+    -o-align-items: stretch;
+    align-items: stretch;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    padding-top: 10px;
+}
+.confirmMasker a.button[for=no] {
+    border-left: 1px solid #ccc;
+}
+.confirmMasker a.button, .alertMasker a.button {
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 13pt;
+    display: block;
+    -webkit-box-sizing: auto;
+    -ms-box-sizing: auto;
+    -o-box-sizing: auto;
+    -moz-box-sizing: auto;
+    box-sizing: auto;
+    padding: 8px 0;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    text-align: center;
+    color: #007aff;
+    border-color: #e1e1e6;
+    background-color: rgba(255,255,255);
+}
+.PasswordMasker footer>.button, .TTfundMasker footer>.button, .confirmMasker footer>.button, .alertMasker footer>.button {
+    display: block;
+    overflow: hidden;
+    -webkit-box-flex: 1;
+    -ms-box-flex: 1;
+    -o-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    -o-flex: 1;
+    -moz-flex: 1;
+    flex: 1;
+    height: 100%;
+    line-height: 30px;
+    max-width: 320px;
+    font-weight: normal;
+    border-top: solid 1px #b5b5b5;
+    color: #2d2d2d;
+}
+.loginMasker footer>.button, .confirmMasker footer>.button, .alertMasker footer>.button {
+    display: block;
+    height: 100%;
+    line-height: 30pt;
+    width: 50%;
+    border-top: solid 1px #b5b5b5;
+    color: #2d2d2d;
+}
+.confirmMasker a.button, .alertMasker a.button {
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 17px;
+    -webkit-transition: all .35s ease-out;
+    -ms-transition: all .35s ease-out;
+    -o-transition: all .35s ease-out;
+    -moz-transition: all .35s ease-out;
+    transition: all .35s ease-out;
+    display: block;
+    -webkit-box-sizing: auto;
+    -ms-box-sizing: auto;
+    -o-box-sizing: auto;
+    -moz-box-sizing: auto;
+    box-sizing: auto;
+    padding: 8px 0;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    text-align: center;
+    color: #007aff;
+    border-color: #bfbfc9;
+    background-color: rgba(255,255,255,.01);
+}
+.ui-color-blue2 {
+    color: #007aff!important;
+}
+.confirmMasker a.button:last-child, .TTfundMasker a.button:last-child, .PasswordMasker a.button:last-child {
+    border-left: 1px solid #e1e1e6;
+}
+.PasswordMasker footer>.button:last-child, .TTfundMasker footer>.button:last-child, .confirmMasker footer>.button:last-child, .alertMasker footer>.button:last-child {
+    border-bottom-right-radius: 14px;
+}
+.confirmMasker>div .confirm .inner, .alertMasker>div .alert .inner {
+    width: 270px;
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    padding-top: 10px;
+}
+</style>
+<div class="confirmMasker" id="_confirmMaskerUI_" style=" display: block; ">
+    <div>
+        <div class="confirm">
+            <div class="inner">
+                <h2>温馨提示</h2>
+                <p>
+                </p>
+                <footer><a href="javascript:void(0)" class="button ui-color-blue2" id="confirmCancel" for="no">取消</a><a href="javascript:void(0)" class="button ui-color-blue2" id="confirmCon" for="yes">确定</a></footer>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

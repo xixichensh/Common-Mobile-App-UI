@@ -1,0 +1,808 @@
+<!doctype html>
+<html><head>
+<meta charset="utf-8">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="format-detection" content="telephone=no">    <!--禁用手机号码链接(for iPhone)-->
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />    <!--自适应设备宽度-->
+<meta name="apple-mobile-web-app-status-bar-style" content="black">    <!--控制全屏时顶部状态栏的外，默认白色-->
+<meta name="apple-mobile-web-app-capable" content="yes" />    <!--是否允许全屏显，只有在桌面启动时可用-->
+<title>UIFramework文档(Doc)</title>
+
+<link href="style/reset.css" rel="stylesheet" type="text/css" />
+<link href="style/Cfxixi.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="style/ttfund-ui.css">
+
+</head>
+
+<body>
+
+
+<aside class="aside">
+    <h2>UI框架规范</h2>
+    <ul>
+        <li><a href="#reset">基础样式</a></li>
+		<li><a href="#buttons">按钮</li>
+		<li><a href="#loadingMask">Loading动画</li>
+        <li><a href="#navBar">导航条</a></li>
+		<li><a href="#alertTips">提示信息框</a></li>
+		<li><a href="#labels">标签</a></li>
+        <li><a href="#formitems">表单</a></li>
+        <li><a href="#icons">图标</a></li>
+        <li><a href="#loginmask">登录界面</a></li>
+        <li><a href="#popUp">浮出层</a></li>
+        <li><a href="#layout">布局</a></li>
+        <li><a href="#menus">菜单</a></li>
+        <li><a href="#confirm">确认提示框</a></li>
+    </ul>
+</aside>
+
+<div class="main">
+
+    <!-- 基础样式(start) -->
+    <div class="item" id="reset">
+        <h2>基础样式</h2>
+        <div class="fund-ui-example">
+            <a href="style/reset.css" target="_blank" class="fund-ui-demo">demo</a>
+        </div>
+
+        <pre class="lang-css">
+/*
+    HTML5 Reset :: style.css
+    ----------------------------------------------------------
+    We have learned much from/been inspired by/taken code where offered from:
+
+    Eric Meyer                  :: http://ericmeyer.com
+    HTML5 Doctor                :: http://html5doctor.com
+    and the HTML5 Boilerplate   :: http://html5boilerplate.com
+
+-------------------------------------------------------------------------------*/
+
+/* Let's default this puppy out
+-------------------------------------------------------------------------------*/
+
+html { height: 100%; overflow: hidden;}
+body { position:relative; background:#000; height: 100%; overflow: hidden;}
+
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+article, aside, figure, footer, header, hgroup, nav, section {display: block;}
+
+/* Responsive images and other embedded objects
+   Note: keeping IMG here will cause problems if you're using foreground images as sprites.
+   If this default setting for images is causing issues, you might want to replace it with a .responsive class instead. */
+img,
+object,
+embed {max-width: 100%;}
+
+/* force a vertical scrollbar to prevent a jumpy page */
+html {overflow-y: scroll;}
+
+/* we use a lot of ULs that aren't bulleted.
+    don't forget to restore the bullets within content. */
+ul,menu {list-style: none;}
+
+blockquote, q {quotes: none;}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {content: ''; content: none;}
+
+a {margin: 0; padding: 0; font-size: 100%; vertical-align: baseline; background: transparent;}
+
+del {text-decoration: line-through;}
+
+abbr[title], dfn[title] {border-bottom: 1px dotted #000; cursor: help;}
+
+/* tables still need cellspacing="0" in the markup */
+table {border-collapse: collapse; border-spacing: 0;}
+th {font-weight: bold; vertical-align: bottom;}
+td {font-weight: normal; vertical-align: top;}
+
+hr {display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0;}
+
+input, select {vertical-align: middle;}
+
+pre {
+    white-space: pre; /* CSS2 */
+    white-space: pre-wrap; /* CSS 2.1 */
+    white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+    word-wrap: break-word; /* IE */
+}
+
+input[type="radio"] {vertical-align: text-bottom;}
+input[type="checkbox"] {vertical-align: bottom; *vertical-align: baseline;}
+.ie6 input {vertical-align: text-bottom;}
+
+select, input, textarea {font: 99% sans-serif;}
+
+table {font-size: inherit; font: 100%;}
+
+/* Accessible focus treatment
+    people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active,input,select {outline: none;}
+
+small {font-size: 85%;}
+
+strong, th {font-weight: bold;}
+
+td, td img {vertical-align: top;}
+
+/* Make sure sup and sub don't screw with your line-heights
+    gist.github.com/413930 */
+sub, sup {font-size: 75%; line-height: 0; position: relative;}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+
+/* standardize any monospaced elements */
+pre, code, kbd, samp {font-family: monospace, sans-serif;}
+
+/* hand cursor on clickable elements */
+.clickable,
+label,
+input[type=button],
+input[type=submit],
+button {cursor: pointer;}
+
+input:focus { outline: none;}
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea {margin: 0; padding: 0;-webkit-appearance:none;background:rgba(0,0,0,0);}
+
+/* make buttons play nice in IE */
+button {width: auto; overflow: visible;}
+
+/* scale images in IE7 more attractively */
+.ie7 img {-ms-interpolation-mode: bicubic;}
+
+/* prevent BG image flicker upon hover */
+.ie6 html {filter: expression(document.execCommand("BackgroundImageCache", false, true));}
+
+/* let's clear some floats */
+.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+
+
+/* Ok, this is where the fun starts.
+-------------------------------------------------------------------------------*/
+
+/* new Linux- and Windows-friendly sans-serif font stack: http://mky.be/fontstack */
+body {font: 13px Helmet, Freesans, sans-serif;}
+
+/* using local fonts? make sure to read up on Paul Irish's
+    Bulletproof @font-face syntax: http://mky.be/font-face/bulletproof/ */
+
+/* we like off-black for text */
+body, select, input, textarea {color: #333;}
+
+a {color: #03f;}
+a:hover {color: #69f;}
+
+/* Custom text-selection colors (remove any text shadows: twitter.com/miketaylr/status/12228805301) */
+::-moz-selection{background: #fcd700; color: #fff; text-shadow: none;}
+::selection {background: #fcd700; color: #fff; text-shadow: none;}
+
+ins {background-color: #fcd700; color: #000; text-decoration: none;}
+mark {background-color: #fcd700; color: #000; font-style: italic; font-weight: bold;}
+
+
+
+
+
+/* Print styles!
+-------------------------------------------------------------------------------*/
+@media print {
+
+
+
+}
+
+
+/* Media queries!
+-------------------------------------------------------------------------------*/
+
+/* Consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
+@media screen and (max-device-width: 480px) {
+
+
+}
+
+@media all and (orientation: portrait) {
+
+}
+
+@media all and (orientation: landscape) {
+
+}
+
+
+/* cfxixi add
+-------------------------------------------------------------------------------*/
+
+/* 链接长按时不触发系统的菜单，也可用于img，在不想让用户长按将图片保存至相册时使用，默认禁止链接和图片 */
+a,img { -webkit-touch-callout: none;}
+
+/* 去除input和输入框的默认样式，并默认赋予30%的黑色背景 */
+input { -webkit-appearance: none; border: none; background: rgba(0,0,0,0.3); border-radius: 0;}
+textarea { border: none; background: rgba(0,0,0,0.3); border-radius: 0;}
+input[type="file"] { background: rgba(0,0,0,0); width: 100px;}
+
+
+/* 去除iphone中按下时的高亮效果 */
+/* 无法选择复制内容 */
+* { -webkit-user-select: none; -moz-user-select: none; -webkit-tap-highlight-color: rgba(0,0,0,0);}
+input,textarea { -webkit-user-select: auto; -moz-user-select: auto;}
+
+/* 阻止旋转屏幕时自动调整字体大小 */
+* { -webkit-text-size-adjust: none;}</pre>
+
+
+
+    </div>
+    <!-- 基础样式(end) -->
+
+	<!-- 按钮(start) -->
+	<div class="item" id="buttons">
+		<h2>按钮</h2>
+		<div class="fund-ui-example">
+            <a href="demo/buttons.html" target="_blank" class="fund-ui-demo">demo</a>
+            <iframe src="demo/buttons.html" width="400" height="300" scrolling="no" frameborder="0"></iframe>
+        </div>
+
+		<pre class="lang-html">
+1. 100%按钮样式示例：
+<div class="btn alignCenter">确&nbsp;&nbsp;认</div>
+
+2.不可用按钮样式：
+<div class="btn alignCenter unAvailableBtn">确&nbsp;&nbsp;认</div>
+
+3.按钮组样式示例：
+<div class="stack alignCenter">
+	<div class="segmentedcontrol">
+		<div class="ui-custom-tint" for="recharge">
+			<label>充值</label>
+		</div>
+		<div class="ui-custom-tint" for="withdrawal">
+			<label>取现</label>
+		</div>
+		<div class="ui-custom-tint" for="withdrawal">
+			<label>互转</label>
+		</div>
+		<div class="ui-custom-tint" for="withdrawal">
+			<label>快取</label>
+		</div>
+	</div>
+</div>
+		</pre>
+
+
+
+	</div>
+	<!-- 按钮(end) -->
+
+	<!-- Loading动画(start) -->
+	<div class="item" id="loadingMask">
+		<h2>Loading动画</h2>
+		<div class="fund-ui-example">
+            <a href="demo/loadingMask.html" target="_blank" class="fund-ui-demo">demo</a>
+            <iframe src="demo/loadingMask.html" width="400" height="300" scrolling="no" frameborder="0"></iframe>
+        </div>
+
+		<pre class="lang-html">
+<div id='_loadingMaskUI_'>
+	<div class='inner'>
+		<div ui class='_maskload_'>
+			<div class='loading' type='12'></div>
+				<span>加载中</span>
+		</div>
+	</div>
+</div>
+		</pre>
+	</div>
+	<!-- loading动画(end) -->
+
+
+	<!-- 导航条(start) -->
+	<div class="item" id="navBar">
+		<h2>导航条</h2>
+		<div class="fund-ui-example">
+            <a href="demo/navBar.html" target="_blank" class="fund-ui-demo">demo</a>
+            <iframe src="demo/navBar.html" width="400" height="300" scrolling="no" frameborder="0"></iframe>
+        </div>
+
+		<pre class="lang-html">
+<header class="navbar">
+	<div class="navbar-inner">
+		<div class="button">
+			<div class="button-inner back">
+				<span class="txt">返回</span>
+			</div>
+			<div class="button-inner">
+				<span class="txt">关闭</span>
+			</div>
+		</div>
+		<h1>站点标题</h1>
+		<div class="button right">
+			<div class="button-inner">
+				<span class="txt">刷新</span>
+			</div>
+			<div class="button-inner">
+				<span class="txt">分享</span>
+			</div>
+		</div>
+	</div>
+</header>
+
+<header class="navbar" style="top:60px">
+	<div class="navbar-inner">
+		<div class="button">
+			<div class="button-inner">
+				<div class="backIcon"></div>
+			</div>
+		</div>
+		<h1>站点标题</h1>
+		<div class="button right">
+			<div class="button-inner">
+				<div class="refreshIcon"></div>
+			</div>
+			<div class="button-inner">
+				<div class="shareIcon"></div>
+			</div>
+		</div>
+	</div>
+</header>
+		</pre>
+	</div>
+	<!-- 导航条(end) -->
+
+	<!-- 提示信息框(start) -->
+    <div class="item" id="alertTips">
+        <h2>提示信息框</h2>
+        <div class="fund-ui-example">
+            <a href="demo/alertTips.html" target="_blank" class="fund-ui-demo">demo</a>
+            <iframe src="demo/alertTips.html" width="400" height="300" scrolling="no" frameborder="0"></iframe>
+        </div>
+
+		<pre class="lang-html">
+<div class="fund-ui alertTips fullpage bgcolor-black40">
+	<div class="ui-km-alert">
+		<div class="ui-km-inner">
+			<p>提示信息</p>
+			<footer>
+				<a href="javascript:void(null)" class="button">确定</a>
+			</footer>
+		</div>
+	</div>
+</div>
+		</pre>
+
+    </div>
+	<!-- 提示信息框(end) -->
+
+	<!-- 标签(start) -->
+	<div class="item" id="labels">
+		<h2>标签</h2>
+		<div class="fund-ui-example">
+            <a href="demo/labels.html" target="_blank" class="fund-ui-demo">demo</a>
+            <iframe src="demo/labels.html" width="400" height="100" scrolling="no" frameborder="0"></iframe>
+        </div>
+
+		<pre class="lang-html">
+<span class="label label-default">基础的</span>
+<span class="label label-primary">主要的</span>
+<span class="label label-success">成功的</span>
+<span class="label label-info">介绍的</span>
+<span class="label label-warning">重要的</span>
+<span class="label label-danger">危险的</span>
+
+<span class="badge badge-default">1</span>
+<span class="badge badge-primary">2</span>
+<span class="badge badge-success">3</span>
+<span class="badge badge-info">4</span>
+<span class="badge badge-warning">5</span>
+<span class="badge badge-danger">6</span></pre>
+	</div>
+	<!-- 标签(end) -->
+
+
+    <!-- 表单(start) -->
+        <div class="item" id="formitems">
+        <h2>表单</h2>
+        <div class="fund-ui-example">
+            <a href="demo/formitems.html" target="_blank" class="fund-ui-demo">demo</a>
+            <iframe src="demo/formitems.html" width="100%" height="500" scrolling="no" frameborder="0"></iframe>
+        </div>
+
+        <pre class="lang-html">
+<h6>密码框参考</h6>
+<input class="fund-ui formItems-password" type="password" />
+
+<h6>金额框参考</h6>
+<input class="fund-ui formItems-input"  type="text" placeholder="最低 100.00"/>
+
+<h6>搜索框参考</h6>
+<div class="search-panel">
+    <input class="fund-ui formItems-search" type="text">
+    <i class="icon iconfont searchIcon">&#xe61b;</i>
+</div>
+
+<h6>Segment按钮参考</h6>
+<div class="segment-group">
+    <button class="gp-btn">Radioactive</button>
+    <button class="gp-btn">Hurt</button>
+    <button class="gp-btn">Permanent</button>
+</div>
+<div class="segment-group">
+    <button class="gp-btn">Single</button>
+</div>
+
+<h6>Radiobox（单选框参考）</h6>
+<ul class="fund-ui formItems-css3">
+    <li class="formItems-radiobox-li">
+        <input id='radio-1' type="radio" name='r-group-1' checked='checked' />
+        <label for="radio-1">工商银行 | 4036[可用余额:2400.56元]</label>
+    </li>
+    <li class="formItems-radiobox-li">
+        <input id='radio-2' type="radio" name='r-group-1' />
+        <label for="radio-2">建设银行 | 4036[可用余额:1122.56元]</label>
+    </li>
+</ul></pre>
+    </div>
+    <!-- 表单(end) -->
+
+    <!-- 图标(start) -->
+    <div class="item" id="icons">
+        <h2>图标</h2>
+        <div class="fund-ui-example">
+            <a href="demo/ux_1449641066_2575788/demo.html" target="_blank" class="fund-ui-demo">demo</a>
+            <iframe src="demo/ux_1449641066_2575788/demo.html" width="100%" height="1200" scrolling="no" frameborder="0"></iframe>
+        </div>
+    </div>
+    <!-- 图标(end) -->
+
+    <!-- 登录界面(start) -->
+    <div class="item" id="loginmask">
+        <h2>标签</h2>
+        <div class="fund-ui-example">
+            <a href="demo/loginmask.html" target="_blank" class="fund-ui-demo">demo</a>
+            <iframe src="demo/loginmask.html" width="400" height="400" scrolling="no" frameborder="0"></iframe>
+        </div>
+
+        <pre class="lang-html">
+<div class="loginMasker" id="_loginMaskerUI_">
+    <div>
+        <div class="login">
+            <div class="inner">
+                <h2>交易登录</h2>
+                <div class="accountTop">
+                    <input class="fund-ui formItems-input userID" type="text" placeholder="身份证（18位）/手机号/通行证"/>
+                    <input class="fund-ui formItems-password userPassword" type="password" placeholder=" 交易密码" />
+                </div>
+                <footer><a href="javascript:void(null)" class="button" for="no">取消</a><a href="javascript:void(null)" class="button" for="yes">登录</a></footer>
+            </div>
+        </div>
+    </div>
+</div></pre>
+    </div>
+    <!-- 登录界面(end) -->
+
+    <!-- PopUp浮出层(start) -->
+    <div class="item" id="popUp">
+        <h2>浮出层</h2>
+        <div class="fund-ui-example">
+            <a href="demo/popUp.html" target="_blank" class="fund-ui-demo">demo</a>
+            <iframe src="demo/popUp.html" width="100%" height="300" scrolling="no" frameborder="0"></iframe>
+        </div>
+
+        <pre class="lang-html">
+<div class="fund-ui popDown">
+    <div class="pop-top">
+        确定删除?
+    </div>
+    <div class="pop-foot">
+        此操作存在会员信息曝光的风险，请确认无误后删除!
+    </div>
+</div>
+
+<div class="fund-ui popLeft">
+    <div class="pop-top">
+        确定删除?
+    </div>
+    <div class="pop-foot">
+        此操作存在会员信息曝光的风险，请确认无误后删除!
+    </div>
+</div>
+
+<div class="fund-ui popRight">
+    <div class="pop-top">
+        确定删除?
+    </div>
+    <div class="pop-foot">
+        此操作存在会员信息曝光的风险，请确认无误后删除!
+    </div>
+</div>
+
+<div class="fund-ui popUp">
+    <div class="pop-foot">
+        此操作存在会员信息曝光的风险，请确认无误后删除!
+    </div>
+    <div class="pop-top">
+        确定删除?
+    </div>
+</div></pre>
+    </div>
+    <!-- PopUp浮出层(end) -->
+
+    <!--布局(start) -->
+    <div class="item" id="layout">
+        <h2>布局</h2>
+        <div class="fund-ui-example">
+            <a href="demo/layout.html" target="_blank" class="fund-ui-demo">demo</a>
+            <iframe src="demo/layout.html" width="100%" height="1500" style="overflow-y:auto" scrolling="no" frameborder="0"></iframe>
+        </div>
+
+        <pre class="lang-html">
+<h6>两列右侧自适应布局</h6>
+<div class="g-bd1 f-cb">
+    <div class="g-sd1">
+        <p>左侧定宽</p>
+    </div>
+    <div class="g-mn1">
+        <div class="g-mn1c">
+            <p>右侧自适应</p>
+        </div>
+    </div>
+</div>
+
+<h6>两列左侧自适应布局</h6>
+<div class="g-bd2 f-cb">
+    <div class="g-mn2">
+        <div class="g-mn2c">
+            <p>左侧自适应</p>
+        </div>
+    </div>
+    <div class="g-sd2">
+        <p>右侧定宽</p>
+    </div>
+</div>
+
+<h6>两列定宽布局</h6>
+<div class="g-bd f-cb">
+    <div class="g-mn">
+        <p>左侧定宽</p>
+    </div>
+    <div class="g-sd">
+        <p>右侧定宽</p>
+    </div>
+</div>
+
+<h6>三列中间自适应布局</h6>
+<div class="g-bd5 f-cb">
+    <div class="g-sd51">
+        <p>左侧定宽</p>
+    </div>
+    <div class="g-mn5">
+        <div class="g-mn5c">
+            <p>中间自适应</p>
+        </div>
+    </div>
+    <div class="g-sd52">
+        <p>右侧定宽</p>
+    </div>
+</div>
+
+<h6>三列左侧自适应布局</h6>
+<div class="g-bd4 f-cb">
+    <div class="g-mn4">
+        <div class="g-mn4c">
+            <p>左侧自适应</p>
+        </div>
+    </div>
+    <div class="g-sd41">
+        <p>右侧定宽</p>
+    </div>
+    <div class="g-sd42">
+        <p>右侧定宽</p>
+    </div>
+</div>
+
+<h6>三列右侧自适应布局</h6>
+<div class="g-bd3 f-cb">
+    <div class="g-sd31">
+        <p>左侧定宽</p>
+    </div>
+    <div class="g-sd32">
+        <p>左侧定宽</p>
+    </div>
+    <div class="g-mn3">
+        <div class="g-mn3c">
+            <p>右侧自适应</p>
+        </div>
+    </div>
+</div></pre>
+    </div>
+    <!-- 标签(end) -->
+
+
+
+    <!-- 菜单(start) -->
+    <div class="item" id="menus">
+        <h2>菜单</h2>
+        <div class="fund-ui-example">
+            <a href="demo/menus.html" target="_blank" class="fund-ui-demo">demo</a>
+            <iframe src="demo/menus.html" width="375" height="400" scrolling="no" frameborder="0"></iframe>
+        </div>
+
+        <pre class="lang-html">
+<div class="get-integral fund-ui-menus">
+    <dl class="list-wrap">
+        <dt>日常任务</dt>
+        <dd>
+            <table>
+                <tr>
+                    <td class="list-ico">
+                        <img class="list-ico-cir" src="img/ico/cir_0.png" >
+                    </td>
+                    <td class="list-info">
+                        <h3 class="list-title">每日签到</h3>
+                        <p class="list-desc">
+                            连续签到，惊喜不断
+                        </p>
+                    </td>
+                    <td class="list-btn">
+                        <a class="ui-btn" href="javascript:;">已签到</a>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+        <dd>
+            <table>
+                <tr>
+                    <td class="list-ico">
+                        <img class="list-ico-cir" src="img/ico/cir_2.png">
+                    </td>
+                    <td class="list-info">
+                        <h3 class="list-title">邀请好友</h3>
+                        <p class="list-desc">
+                            <span>成功邀请一个好友送</span><span class="ui-color-red" >200</span><span >财富币</span>
+                        </p>
+                    </td>
+                    <td class="list-btn">
+                        <a class="ui-btn" href="javascript:;">去邀请</a>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+    <dl class="list-wrap">
+        <dt>专享任务</dt>
+        <dd>
+            <table>
+                <tr>
+                    <td class="list-ico">
+                        <img class="list-ico-cir" src="img/ico/cir_3.png">
+                    </td>
+                    <td class="list-info">
+                        <h3 class="list-title">新人有礼</h3>
+                        <p class="list-desc">
+                            <span>注册交易账户就送</span><span class="ui-color-red">100</span><span>财富币</span>
+                        </p>
+                    </td>
+                    <td class="list-btn" >
+                        <a class="ui-btn-orange off" href="javascript:;" id="move_t1">新手专享</a>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+        <dd>
+            <table>
+                <tr>
+                    <td class="list-ico">
+                        <img class="list-ico-cir" src="img/ico/cir_4.png">
+                    </td>
+                    <td class="list-info">
+                        <h3 class="list-title">受邀有礼</h3>
+                        <p class="list-desc">
+                            <span>填好友邀请码</span><span class="ui-color-red">50</span><span>财富币</span>
+                        </p>
+                    </td>
+                    <td class="list-btn">
+                        <a class="ui-btn-orange off" href="javascript:;" id="move_t2">新手专享</a>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+        <dd>
+            <table>
+                <tr>
+                    <td class="list-ico">
+                        <img class="list-ico-cir" src="img/ico/cir_5.png">
+                    </td>
+                    <td class="list-info">
+                        <h3 class="list-title">体验活期宝</h3>
+                        <p class="list-desc">
+                            <span>首次充值活期宝送 </span><span class="ui-color-red">100</span><span>财富币</span>
+                        </p>
+                    </td>
+                    <td class="list-btn">
+                        <a class="ui-btn-orange" href="javascript:;" id="move_t3">新手专享</a>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+</div></pre>
+    </div>
+    <!-- 菜单(end) -->
+
+
+    <!-- 提示确认(start) -->
+    <div class="item" id="confirm">
+        <h2>提示确认框</h2>
+        <div class="fund-ui-example">
+            <a href="demo/confirm.html" target="_blank" class="fund-ui-demo">demo</a>
+            <iframe src="demo/confirm.html" width="375" height="400" scrolling="no" frameborder="0"></iframe>
+        </div>
+
+        <pre class="lang-html">
+<div class="confirmMasker" id="_confirmMaskerUI_" style=" display: block; ">
+    <div>
+        <div class="confirm">
+            <div class="inner">
+                <h2>温馨提示</h2>
+                <p>
+                </p>
+                <footer><a href="javascript:void(0)" class="button ui-color-blue2" id="confirmCancel" for="no">取消</a><a href="javascript:void(0)" class="button ui-color-blue2" id="confirmCon" for="yes">确定</a></footer>
+            </div>
+        </div>
+    </div>
+</div></pre>
+    </div>
+    <!-- 菜单(end) -->
+</div>
+
+
+
+
+
+<script src="http://j5.dfcfw.com/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="prettify/prettify.js"></script>
+<link rel="stylesheet" href="prettify/prettify.css" />
+<link rel="stylesheet" href="prettify/theme/theme_light_bootstrap.css">
+<script>
+$(function(){
+  var FundUI = {
+        escape : function(){
+            //标签转换成实体符
+            $.each($(".lang-html"),function(){
+                $_d = document;
+                $_elem = $_d.createElement('div');
+                $_txt = $_d.createTextNode($(this).html());
+                $_elem.appendChild($_txt)
+                $_h = $_elem.innerHTML;
+
+                $(this).html($_h);
+            });
+        }(),
+        prePrint : function(){
+            //代码高亮
+            $("pre").addClass("prettyprint linenums");
+            prettyPrint();
+        }()
+  };
+});
+</script>
+
+</body>
+</html>

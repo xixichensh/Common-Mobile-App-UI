@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="../style/reset.css">
+<title>demo-buttons</title>
+</head>
+<body>
+<style>
+
+.btn {
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,.3), inset 0 2px 1px rgba(255,255,255,.2);
+    height: 42px;
+    border: solid 1px #3161a9;
+    border-radius: 5px;
+    background-image: -webkit-gradient(linear, 0% 100%, 0% 0%, from(#3161a9),color-stop(0.07, #4b91e1), to(#64acf3));
+    background-image: -webkit-linear-gradient(bottom, #3161a9, #4b91e1 7%, #64acf3);
+
+}
+
+.btn[hover=on]{
+    background-image: -webkit-gradient(linear,left top,left bottom, from(#7095e8), to(#2563de));
+    background-image: -webkit-linear-gradient(top, #7095e8, #2563de);
+}
+
+
+
+
+
+
+
+
+.stack {
+    
+	display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-user-select: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    border: solid 1px #9a9a99;
+    font: normal 18px Helvetica, Sans-serif;
+	
+}
+
+
+.stack .segmentedcontrol {
+	-webkit-box-flex: 1;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+}
+
+
+.stack .segmentedcontrol > div:first-of-type {
+    border: none;
+}
+
+
+.stack .segmentedcontrol .ui-custom-tint {
+    display: -webkit-box;
+    -webkit-box-flex: 1;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    border-left: solid 1px #9a9a99;
+    background-image: -webkit-linear-gradient(top, #fbfbfb, #d0d0d0);
+    background-image: -webkit-gradient(linear,0% 0%, 0% 100%, from(#fbfbfb),to(#d0d0d0));
+    height: 42px;
+}
+
+.stack .segmentedcontrol .ui-custom-tint label {
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+.alignCenter {
+    margin: 10px auto;
+    width: 90%;
+}
+
+.unAvailableBtn {
+	background:gray !important;
+	border: solid 1px gray !important;
+	box-shadow: none !important;
+}
+
+</style>
+<div class="fund-ui alertTips fullpage bgcolor-black40">
+	1. 100%按钮样式示例：
+	
+	<div class="btn alignCenter">确&nbsp;&nbsp;认</div>
+
+	2.不可用按钮样式：
+	
+	<div class="btn alignCenter unAvailableBtn">确&nbsp;&nbsp;认</div>
+	
+	2.按钮组样式示例：
+	
+	<div class="stack alignCenter">
+		<div class="segmentedcontrol">
+			<div class="ui-custom-tint" for="recharge">
+				<label>充值</label>
+			</div>
+			<div class="ui-custom-tint" for="withdrawal">
+				<label>取现</label>
+			</div>
+
+			<div class="ui-custom-tint" for="withdrawal">
+				<label>互转</label>
+			</div>
+
+			<div class="ui-custom-tint" for="withdrawal">
+				<label>快取</label>
+			</div>
+
+		</div>
+	</div>
+	
+</div>
+</body>
+</html>

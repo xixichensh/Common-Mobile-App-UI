@@ -1,0 +1,310 @@
+/* loading */
+/***************
+*
+*   <div class="loading" type="12" small black><span></span></div>
+*   不用-webkit-mask-image实现，主要是因为当图片未载入时视觉效果不佳
+*
+***************/
+
+.loading[type] {
+    display: block;
+    overflow: hidden;
+    -webkit-animation-duration: 1.5s;
+    -ms-animation-duration: 1.5s;
+    -moz-animation-duration: 1.5s;
+    -o-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+
+    -webkit-animation-timing-function: linear;
+    -ms-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    animation-timing-function: linear;
+
+    -webkit-animation-iteration-count: infinite;
+    -ms-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+
+    -webkit-background-size: 100%;
+    -ms-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-transform:rotate(0);
+    -ms-transform:rotate(0);
+    -moz-transform:rotate(0);
+    -o-transform:rotate(0);
+    transform:rotate(0);
+
+
+    -webkit-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+
+    -webkit-perspective: 1000;
+    -ms-perspective: 1000;
+    -moz-perspective: 1000;
+    -o-perspective: 1000;
+    perspective: 1000;
+}
+.loading[type="12"] {
+    width: 35px;
+    height: 35px;
+    -webkit-animation-name: loadingAnimation;
+    -ms-animation-name: loadingAnimation;
+    -moz-animation-name: loadingAnimation;
+    -o-animation-name: loadingAnimation;
+    animation-name: loadingAnimation;
+    background: url(../images/ui/spinner_type12.png) 0 0 no-repeat;
+    background-size: 35px 35px;
+}
+
+@-webkit-keyframes "loadingAnimation" {
+    0%		{
+        -moz-transform:rotate(0deg);
+        -ms-transform:rotate(0deg);
+        -o-transform:rotate(0deg);
+        -webkit-transform:rotate(0deg);
+        transform:rotate(0deg);
+    }
+    8.3% 	{
+        -moz-transform:rotate(0deg);
+        -ms-transform:rotate(0deg);
+        -o-transform:rotate(0deg);
+        -webkit-transform:rotate(0deg);
+        transform:rotate(0deg);
+    }
+    8.3001%	{
+        -moz-transform:rotate(30deg);
+        -ms-transform:rotate(30deg);
+        -o-transform:rotate(30deg);
+        -webkit-transform:rotate(30deg);
+        transform:rotate(30deg);
+    }
+    16.7%	{
+        -moz-transform:rotate(30deg);
+        -ms-transform:rotate(30deg);
+        -o-transform:rotate(30deg);
+        -webkit-transform:rotate(30deg);
+        transform:rotate(30deg);
+    }
+    16.7001%{
+        -moz-transform:rotate(60deg);
+        -ms-transform:rotate(60deg);
+        -o-transform:rotate(60deg);
+        -webkit-transform:rotate(60deg);
+        transform:rotate(60deg);
+    }
+    25% 	{
+        -moz-transform:rotate(60deg);
+        -ms-transform:rotate(60deg);
+        -o-transform:rotate(60deg);
+        -webkit-transform:rotate(60deg);
+        transform:rotate(60deg);
+    }
+    25.001%	{
+        -moz-transform:rotate(90deg);
+        -ms-transform:rotate(90deg);
+        -o-transform:rotate(90deg);
+        -webkit-transform:rotate(90deg);
+        transform:rotate(90deg);
+    }
+    33.3% 	{
+        -moz-transform:rotate(90deg);
+        -ms-transform:rotate(90deg);
+        -o-transform:rotate(90deg);
+        -webkit-transform:rotate(90deg);
+        transform:rotate(90deg);
+    }
+    33.3001%{
+        -moz-transform:rotate(120deg);
+        -ms-transform:rotate(120deg);
+        -o-transform:rotate(120deg);
+        -webkit-transform:rotate(120deg);
+        transform:rotate(120deg);
+    }
+    41.7% 	{
+        -moz-transform:rotate(120deg);
+        -ms-transform:rotate(120deg);
+        -o-transform:rotate(120deg);
+        -webkit-transform:rotate(120deg);
+        transform:rotate(120deg);
+    }
+    41.7001%{
+        -moz-transform:rotate(150deg);
+        -ms-transform:rotate(150deg);
+        -o-transform:rotate(150deg);
+        -webkit-transform:rotate(150deg);
+        transform:rotate(150deg);
+    }
+    50% 	{
+        -moz-transform:rotate(150deg);
+        -ms-transform:rotate(150deg);
+        -o-transform:rotate(150deg);
+        -webkit-transform:rotate(150deg);
+        transform:rotate(150deg);
+    }
+    50.001%	{
+        -moz-transform:rotate(180deg);
+        -ms-transform:rotate(180deg);
+        -o-transform:rotate(180deg);
+        -webkit-transform:rotate(180deg);
+        transform:rotate(180deg);
+    }
+    58.3% 	{
+        -moz-transform:rotate(180deg);
+        -ms-transform:rotate(180deg);
+        -o-transform:rotate(180deg);
+        -webkit-transform:rotate(180deg);
+        transform:rotate(180deg);
+    }
+    58.3001%{
+        -moz-transform:rotate(210deg);
+        -ms-transform:rotate(210deg);
+        -o-transform:rotate(210deg);
+        -webkit-transform:rotate(210deg);
+        transform:rotate(210deg);
+    }
+    66.7% 	{
+        -moz-transform:rotate(210deg);
+        -ms-transform:rotate(210deg);
+        -o-transform:rotate(210deg);
+        -webkit-transform:rotate(210deg);
+        transform:rotate(210deg);
+    }
+    66.7001%{
+        -moz-transform:rotate(240deg);
+        -ms-transform:rotate(240deg);
+        -o-transform:rotate(240deg);
+        -webkit-transform:rotate(240deg);
+        transform:rotate(240deg);
+    }
+    75% 	{
+        -moz-transform:rotate(240deg);
+        -ms-transform:rotate(240deg);
+        -o-transform:rotate(240deg);
+        -webkit-transform:rotate(240deg);
+        transform:rotate(240deg);
+    }
+    75.001% {
+        -moz-transform:rotate(270deg);
+        -ms-transform:rotate(270deg);
+        -o-transform:rotate(270deg);
+        -webkit-transform:rotate(270deg);
+        transform:rotate(270deg);
+    }
+    83.3% 	{
+        -moz-transform:rotate(270deg);
+        -ms-transform:rotate(270deg);
+        -o-transform:rotate(270deg);
+        -webkit-transform:rotate(270deg);
+        transform:rotate(270deg);
+    }
+    83.3001%{
+        -moz-transform:rotate(300deg);
+        -ms-transform:rotate(300deg);
+        -o-transform:rotate(300deg);
+        -webkit-transform:rotate(300deg);
+        transform:rotate(300deg);
+    }
+    91.7% 	{
+        -moz-transform:rotate(300deg);
+        -ms-transform:rotate(300deg);
+        -o-transform:rotate(300deg);
+        -webkit-transform:rotate(300deg);
+        transform:rotate(300deg);
+    }
+    91.7001%{
+        -moz-transform:rotate(330deg);
+        -ms-transform:rotate(330deg);
+        -o-transform:rotate(330deg);
+        -webkit-transform:rotate(330deg);
+        transform:rotate(330deg);
+    }
+    100% 	{
+        -moz-transform:rotate(330deg);
+        -ms-transform:rotate(330deg);
+        -o-transform:rotate(330deg);
+        -webkit-transform:rotate(330deg);
+        transform:rotate(330deg);
+    }
+}
+
+/* 默认的loading样式 */
+#_loadingMaskUI_ {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 99999;
+    display: none;}
+
+#_loadingMaskUI_ .inner {
+    display: table-row;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#_loadingMaskUI_ .inner ._maskload_ {
+    height: 92px;
+    width: 100px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    overflow: hidden;
+    background: rgba(0,0,0,0.85);
+    padding: 20px 0 8px 0;
+    margin: -90px 0 0 -45px;
+    border-radius: 5px;
+}
+
+#_loadingMaskUI_ .inner ._maskload_ .loading { margin: 0 auto 10px auto;}
+
+#_loadingMaskUI_ .inner ._maskload_ span {
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    height: 22px;
+    line-height: 22px;
+}
+
+#_loadingMaskUI_ .inner ._maskerror_ {
+    height: 72px;
+    width: 100px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    overflow: hidden;
+    background: rgba(0,0,0,0.85);
+    padding: 20px 0 8px 0;
+    margin: -90px 0 0 -45px;
+    border-radius: 5px;
+}
+
+#_loadingMaskUI_ .inner ._maskerror_ span {
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    height: 22px;
+    line-height: 22px;
+}
+
+

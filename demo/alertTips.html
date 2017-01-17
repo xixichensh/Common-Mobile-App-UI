@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="../style/reset.css">
+<title>demo-alertTips</title>
+</head>
+<body>
+<style>
+div.fund-ui.fullpage {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: #000000;
+	font-family: \5FAE\8F6F\96C5\9ED1, Arial, Helvetica, sans-serif;
+}
+
+div.fund-ui.bgcolor-black40{
+    background: rgba(0,0,0,0.4);
+}
+
+div.alertTips .ui-km-alert .ui-km-inner {
+
+	padding: 5px 0px;
+    width: 270px;
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -90px 0 0 -140px;
+}
+
+div.alertTips .ui-km-alert h2 {
+    font-size: 19px;
+    font-weight: normal;
+    text-align: center;
+    line-height: 28px;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.8);
+    padding-top: 5px;
+}
+
+div.alertTips .ui-km-alert p {
+	color: #000000;
+    padding: 20px 15px;
+    font-size: 13px;
+    text-align: center;
+    font-weight: normal;
+    line-height: 15px;
+
+}
+
+div.alertTips a.button {
+    text-decoration: none;
+    font-size: 13pt;
+    padding: 8px 0;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle;
+    text-align: center;
+    background-color: rgba(255,255,255,.01);
+}
+
+div.alertTips footer>.button {
+    display: block;
+    line-height: 22pt;
+    color: #007aff;
+    border-color: #007aff;
+    border-top: 1px solid #c8c7cc;
+    background-color: rgba(255,255,255,.01);
+    height: 23px;
+}
+
+</style>
+<div class="fund-ui alertTips fullpage bgcolor-black40">
+    <div class="ui-km-alert">
+        <div class="ui-km-inner">
+            <p>提示信息</p>
+            <footer>
+                <a href="javascript:void(null)" class="button">确定</a>
+            </footer>
+        </div>
+    </div>
+</div>
+</body>
+</html>

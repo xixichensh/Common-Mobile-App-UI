@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="../style/reset.css">
+<title>demo-navBar</title>
+</head>
+<body>
+<style>
+header.navbar {
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    height: 45px;
+    background-color: #1b1c1f;
+	
+	font-size:16px;
+	font-family: \5FAE\8F6F\96C5\9ED1, Arial, Helvetica, sans-serif;
+
+}
+
+
+header.navbar .navbar-inner {
+    overflow: hidden;
+}
+
+
+header.navbar .button {
+    position: absolute;
+    display: -webkit-box;
+    height: 100%;
+}
+
+
+header.navbar .button .txt {
+    color: #fff;
+    padding: 0 7px;
+}
+
+header.navbar .navbar-inner h1 {
+    width: 50%;
+    min-width: 162px;
+    font: bold 20px/32px Helvetica, Sans-serif;
+    line-height: 45px;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    letter-spacing: -1px;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    margin: 0px auto;
+
+}
+
+
+header.navbar .right {
+    right: 5px;
+    top: 0;
+}
+
+
+.button-inner.back::before {
+    display: block;
+    content: '';
+    border: solid 1px transparent;
+    background-color: #fff;
+    -webkit-mask-position: 50% 50%;
+    -webkit-mask-size: 90% 90%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3Asvg%3D'http%3A%2F%2Fwww.w3.org%2F…yle%3D'stroke%3A%23000%3Bstroke-width%3A3'%20%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+    -webkit-mask-position: left center;
+    width: 20px;
+    height: 20px;
+    margin-right: 7px;
+    position: absolute;
+    left: -4px;
+    top: 4px;
+}
+
+
+.button-inner {
+    position: relative;
+    line-height: 28px;
+    height: 29px;
+    top: 7px;
+}
+
+.button-inner.back{
+    padding: 0 0 0 18px;
+}
+
+
+header .button-inner.back {
+    left: 5px;
+    width: 50px;
+    right: auto;
+    background: url(./navBar/images/buttons.png) 0 0 no-repeat;
+
+    -webkit-background-size: 50px auto;
+    -o-background-size: 50px auto;
+    -moz-background-size: 50px auto;
+    -ms-background-size: 50px auto;
+    background-size: 50px auto;
+}
+
+
+header .refreshIcon {
+    height: 30px;
+    width: 35px;
+    background: url(./navBar/images/buttons.png) right -63px no-repeat;
+    -webkit-background-size: 50px auto;
+}
+
+header .shareIcon {
+    height: 30px;
+    width: 35px;
+    background: url(./navBar/images/buttons.png) right -197px no-repeat;
+    -webkit-background-size: 50px auto;
+}
+
+header .backIcon {
+    height: 30px;
+    width: 35px;
+    background: url(./navBar/images/buttons.png) left 1px no-repeat;
+    -webkit-background-size: 50px auto;
+    margin-left: 5px;
+}
+
+.navbar-fixed-top {
+    position: fixed!important;
+    top: 0;
+}
+
+.navbar-fixed-bottom {
+    position: fixed!important;
+    bottom: 0;
+}
+</style>
+<div class="fund-ui alertTips fullpage bgcolor-black40">
+    <header class="navbar">
+		<div class="navbar-inner">
+			<div class="button">
+				<div class="button-inner back">
+					<span class="txt">返回</span>
+				</div>
+				<div class="button-inner">
+					<span class="txt">关闭</span>
+				</div>
+			</div>
+			<h1>站点标题</h1>
+			<div class="button right">
+				<div class="button-inner">
+					<span class="txt">刷新</span>
+				</div>
+				<div class="button-inner">
+					<span class="txt">分享</span>
+				</div>
+			</div>
+		</div>
+	</header>
+	
+	<header class="navbar" style="top:60px">
+		<div class="navbar-inner">
+			<div class="button">
+				<div class="button-inner">
+					<div class="backIcon"></div>
+				</div>
+			</div>
+			<h1>站点标题</h1>
+			<div class="button right">
+				<div class="button-inner">
+					<div class="refreshIcon"></div>
+				</div>
+				<div class="button-inner">
+					<div class="shareIcon"></div>
+				</div>
+			</div>
+		</div>
+	</header>
+	
+</div>
+</body>
+</html>

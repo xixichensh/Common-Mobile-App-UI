@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+
+<link rel="stylesheet" href="../style/reset.css">
+
+<title>demo-PopUp</title>
+
+</head>
+<style>
+body { padding:10px 5%;}
+</style>
+<body>
+<style>
+.popDown,.popLeft,.popRight,.popUp {
+    position: relative;
+    width: 200px;
+    border:1px solid #c5c5c5;
+    border-radius: 4px;
+    font-size: 13px;
+    box-shadow: 0 3px 5px 2px rgba(187,187,187,0.2);
+    display: inline-block;
+    margin:20px 20px;
+}
+.pop-foot {
+    padding:8px 10px;
+    line-height: 1.5;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    background: #fff
+}
+.pop-top {
+    padding:6px 10px;
+    background: #f7f7f7;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+.popUp:before,.popDown:before,.popLeft:before,.popRight:before {
+    z-index: 2;
+}
+
+.popUp:after,.popUp:before,
+.popDown:after,.popDown:before,
+.popLeft:after,.popLeft:before,
+.popRight:after,.popRight:before
+ {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+.popUp:after,.popUp:before {
+    border-left: 8px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 8px solid #c5c5c5;
+    top: -8px;
+    left: 50%;
+    margin-left: -16px;
+}
+.popDown:after,.popDown:before {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid #c5c5c5;
+    bottom: -10px;
+    left: 50%;
+    margin-left: -16px;
+}
+.popLeft:after,.popLeft:before {
+    border-top: 8px solid transparent;
+    border-right: 10px solid #c5c5c5;
+    border-bottom: 8px solid transparent;
+    left: -10px;
+    top: 50%;
+    margin-top: -8px;
+}
+.popRight:after,.popRight:before {
+    border-top: 8px solid transparent;
+    border-left: 10px solid #c5c5c5;
+    border-bottom: 8px solid transparent;
+    right: -10px;
+    top: 50%;
+    margin-top: -8px;
+}
+
+.popUp:before {
+    top: -7px;
+    border-bottom: 8px solid #fff;
+}
+.popDown:before {
+    bottom: -9px;
+    border-top: 10px solid #fff;
+}
+.popRight:before {
+    border-left: 10px solid #fff;
+    right: -9px;
+}
+.popLeft:before {
+    border-right: 10px solid #fff;
+    left: -9px;
+}
+</style>
+
+<div class="fund-ui popDown">
+    <div class="pop-top">
+        确定删除?
+    </div>
+    <div class="pop-foot">
+        此操作存在会员信息曝光的风险，请确认无误后删除!
+    </div>
+</div>
+
+<div class="fund-ui popLeft">
+    <div class="pop-top">
+        确定删除?
+    </div>
+    <div class="pop-foot">
+        此操作存在会员信息曝光的风险，请确认无误后删除!
+    </div>
+</div>
+
+<div class="fund-ui popRight">
+    <div class="pop-top">
+        确定删除?
+    </div>
+    <div class="pop-foot">
+        此操作存在会员信息曝光的风险，请确认无误后删除!
+    </div>
+</div>
+
+<div class="fund-ui popUp">
+    <div class="pop-foot">
+        此操作存在会员信息曝光的风险，请确认无误后删除!
+    </div>
+    <div class="pop-top">
+        确定删除?
+    </div>
+</div>
+
+</body>
+</html>
